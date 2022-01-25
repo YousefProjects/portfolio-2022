@@ -11,7 +11,7 @@
   --grey: #454e56;
   --orange: #ea793f;
   --lightblue: #54c5f8;
-  --blue: #498AFB;
+  --blue: #498afb;
   --purple: #a388c8;
   --green: #c5f08f;
   --yellow: #f0db4f;
@@ -26,8 +26,9 @@
 body {
   font-family: "Poppins", sans-serif;
   color: #fff;
-  padding-bottom: 50px;
   background-color: #12181b;
+  padding: 0;
+  margin: 0;
 }
 
 .container {
@@ -46,11 +47,6 @@ section {
   color: var(--grey);
   text-align: left;
   margin: 25px;
-}
-.title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
 }
 section .title-row h6 {
   font-family: "Bungee", cursive;
@@ -113,31 +109,19 @@ section .title-row h6 {
 }
 /* home section */
 .hero {
-  background-image: url("/images/RNI-Films-IMG-C3A98B0C-B88F-442C-8FEF-ECF144BB74B5.JPG");
+  background-image: url("/images/kuwait-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom center;
-  height: 100vh;
-  color: var(--primary-light);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   text-align: center;
-  position: relative;
+  height: 100vh;
+  color: var(--primary-light);
   margin-bottom: 20px;
   z-index: -2;
-  flex-direction: column;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -1;
 }
 
 #home img {
@@ -146,6 +130,7 @@ section .title-row h6 {
   margin: 25px;
   margin-right: 50px;
   border: 5px solid #fff;
+  transition: 0.2s ease-in-out;
 }
 
 .hero h1 {
@@ -173,7 +158,7 @@ section .title-row h6 {
 .fa-github {
   color: var(--purple);
 }
-.fa-medium-m{
+.fa-medium-m {
   color: white;
 }
 
@@ -239,7 +224,7 @@ section .title-row h6 {
   position: relative;
   width: 350px;
   height: 250px;
-  /* border: 1px solid darkgray; */
+  border: 1.5px solid var(--grey);
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -306,27 +291,120 @@ section .title-row h6 {
   background-color: var(--grey);
 }
 /* social media section */
-#social-media{
+#social-media {
   display: flex;
   flex-direction: column;
+  background-image: url("/images/kuwait-bg-bottom.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
 }
-.media-row{
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.media-col {
   display: flex;
   justify-content: center;
-  align-items: start;
-  flex-direction: row;
-}
-.media-col{
+  align-items: center;
+  flex-direction: column;
   padding: 20px;
+  color: var(--primary-light);
+  transition: all 0.3s ease-in-out;
 }
-.media-col i{
+.media-col i {
   margin-bottom: 30px;
   font-size: 50px;
   width: 250px;
   text-align: center;
 }
-.media-col p{
+.media-col p {
   font-size: 20px;
   text-align: center;
 }
+.media-col:hover {
+  color: white;
+}
 
+/* footer section */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-dark);
+  height: 30px;
+  color: var(--grey);
+}
+
+/* Tablet */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  nav .container ul {
+    display: none;
+  }
+  .skill-card {
+    margin: 10px;
+  }
+  .skill-title {
+    font-size: 15px;
+  }
+  .grid-projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  section {
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  nav .container ul {
+    display: none;
+  }
+  .section-title {
+    text-align: center;
+  }
+  .skill-card {
+    margin: 10px;
+  }
+  .skill-title {
+    font-size: 15px;
+  }
+  .skills-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    margin-bottom: 50px;
+  }
+  .skills-container {
+    padding: 0;
+    margin: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  .grid-projects {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+}
